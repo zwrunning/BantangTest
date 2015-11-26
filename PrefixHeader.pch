@@ -1,0 +1,27 @@
+//
+//  PrefixHeader.pch
+//  半糖
+//
+//  Created by Air. on 15/11/20.
+//  Copyright © 2015年 Air. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#import "UIView+Extension.h"
+#import <AFNetworking.h>
+#import <MJExtension.h>
+#import <Masonry.h>
+#import <UIImageView+WebCache.h>
+/**
+ *  RGB
+ */
+#define kRGB(r,g,b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
+
+/**
+ *  屏幕宽高
+ */
+#define kWidth [UIScreen mainScreen].bounds.size.width
+#define kHeight [UIScreen mainScreen].bounds.size.height
+#endif /* PrefixHeader_pch */
