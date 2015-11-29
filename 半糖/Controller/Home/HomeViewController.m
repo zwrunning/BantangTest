@@ -55,6 +55,8 @@ static NSString *ID = @"cell";
     [self setupTableView];
     [self loadData];
     [self setupHeader];
+    
+    
 }
 
 /**
