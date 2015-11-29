@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="topic" id="KGk-i7-Jjw" customClass="TopicViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="144"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="143.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sQ7-VN-Qk2">
+                        <rect key="frame" x="4" y="4.5" width="312" height="135.5"/>
+                        <animations/>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home_topic_new" translatesAutoresizingMaskIntoConstraints="NO" id="AbW-XF-lAz">
+                        <rect key="frame" x="4" y="4" width="44" height="44"/>
+                        <animations/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="44" id="NuT-7H-amc"/>
+                            <constraint firstAttribute="height" constant="44" id="o3x-Zk-fh6"/>
+                        </constraints>
+                    </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nix-BT-ms3">
+                        <rect key="frame" x="266" y="9" width="45" height="45"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home_item_likebg" translatesAutoresizingMaskIntoConstraints="NO" id="UJL-2a-Pt0">
+                                <rect key="frame" x="0.0" y="0.0" width="45" height="45"/>
+                                <animations/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home_item_like" translatesAutoresizingMaskIntoConstraints="NO" id="gcN-7L-SgO">
+                                <rect key="frame" x="12" y="8" width="20" height="20"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="Ccd-Mv-ScW"/>
+                                    <constraint firstAttribute="width" constant="20" id="gKB-zW-k63"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="110" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hT9-8i-i1x">
+                                <rect key="frame" x="0.0" y="28" width="45" height="17"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="hT9-8i-i1x" firstAttribute="leading" secondItem="nix-BT-ms3" secondAttribute="leading" id="1Nw-0Z-2f0"/>
+                            <constraint firstAttribute="bottom" secondItem="UJL-2a-Pt0" secondAttribute="bottom" id="605-gU-uOi"/>
+                            <constraint firstAttribute="width" constant="45" id="8vR-nM-SfR"/>
+                            <constraint firstAttribute="trailing" secondItem="hT9-8i-i1x" secondAttribute="trailing" id="BDV-TT-umE"/>
+                            <constraint firstItem="UJL-2a-Pt0" firstAttribute="top" secondItem="nix-BT-ms3" secondAttribute="top" id="CYx-fc-g9t"/>
+                            <constraint firstItem="UJL-2a-Pt0" firstAttribute="leading" secondItem="nix-BT-ms3" secondAttribute="leading" id="Njk-ty-8T3"/>
+                            <constraint firstItem="gcN-7L-SgO" firstAttribute="centerX" secondItem="nix-BT-ms3" secondAttribute="centerX" id="Oq2-yV-qHn"/>
+                            <constraint firstAttribute="height" constant="45" id="UL5-sd-Pcv"/>
+                            <constraint firstItem="hT9-8i-i1x" firstAttribute="top" secondItem="gcN-7L-SgO" secondAttribute="bottom" id="brc-tp-7i6"/>
+                            <constraint firstAttribute="trailing" secondItem="UJL-2a-Pt0" secondAttribute="trailing" id="iaJ-lj-UdO"/>
+                            <constraint firstAttribute="bottom" secondItem="hT9-8i-i1x" secondAttribute="bottom" id="sCo-Tp-wOJ"/>
+                            <constraint firstItem="gcN-7L-SgO" firstAttribute="top" secondItem="nix-BT-ms3" secondAttribute="top" constant="8" id="wge-Fp-f68"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <animations/>
+                <constraints>
+                    <constraint firstItem="sQ7-VN-Qk2" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="CQP-dD-35B"/>
+                    <constraint firstItem="AbW-XF-lAz" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="Mcv-k8-AGm"/>
+                    <constraint firstAttribute="trailing" secondItem="sQ7-VN-Qk2" secondAttribute="trailing" constant="4" id="Yrd-rB-Ifx"/>
+                    <constraint firstAttribute="trailing" secondItem="nix-BT-ms3" secondAttribute="trailing" constant="9" id="ZPe-Gl-TrP"/>
+                    <constraint firstItem="AbW-XF-lAz" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="4" id="hHr-NR-azo"/>
+                    <constraint firstAttribute="bottom" secondItem="sQ7-VN-Qk2" secondAttribute="bottom" constant="4" id="js0-wi-ImI"/>
+                    <constraint firstItem="nix-BT-ms3" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="9" id="pYh-Q6-tgV"/>
+                    <constraint firstItem="sQ7-VN-Qk2" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="4" id="uYW-ah-nQu"/>
+                </constraints>
+            </tableViewCellContentView>
+            <animations/>
+            <connections>
+                <outlet property="bgView" destination="nix-BT-ms3" id="XVc-RI-EHF"/>
+                <outlet property="likeCountLabel" destination="hT9-8i-i1x" id="UdI-LG-hi1"/>
+                <outlet property="logoImg" destination="AbW-XF-lAz" id="bSc-mE-hzB"/>
+                <outlet property="topicImg" destination="sQ7-VN-Qk2" id="NPd-uO-b3m"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="home_item_like" width="20" height="18"/>
+        <image name="home_item_likebg" width="45" height="45"/>
+        <image name="home_topic_new" width="44" height="44"/>
+    </resources>
+</document>
