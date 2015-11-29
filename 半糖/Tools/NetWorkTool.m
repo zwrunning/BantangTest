@@ -8,10 +8,10 @@
 
 #import "NetWorkTool.h"
 
-NSString *const DiscoveryURL = @"http://open3.bantangapp.com/product/list";
-NSString *const IndexURL = @"http://open3.bantangapp.com/recommend/index";
-NSString *const TopicListURL = @"http://open3.bantangapp.com/topic/list";
-NSString *const SubjectURL = @"http://open3.bantangapp.com/topic/info";
+static NSString *const DiscoveryURL = @"http://open3.bantangapp.com/product/list";
+static NSString *const IndexURL = @"http://open3.bantangapp.com/recommend/index";
+static NSString *const TopicListURL = @"http://open3.bantangapp.com/topic/list";
+static NSString *const SubjectURL = @"http://open3.bantangapp.com/topic/info";
 
 static id _instace;
 @interface NetWorkTool()
