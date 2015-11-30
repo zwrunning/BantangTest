@@ -14,32 +14,28 @@
 #import "TopicViewCell.h"
 #import "Entry.h"
 #import "EntryViewCell.h"
+#import "TopicListViewController.h"
+#import "TopicWebViewController.h"
+#include "NSString+Extension.h"
 
-@interface HomeViewController ()<UITableViewDataSource,UITableViewDelegate,UICollectionViewDataSource,UICollectionViewDelegate>
 
-/** TableView */
-@property (nonatomic, strong) UITableView *tableView;
-/** 状态栏颜色 */
-@property (nonatomic, weak) UIView *statusView;
-/** 记录上一次调用时的Y值 */
-@property (nonatomic, assign)CGFloat yy;
+static NSString *const EntryID = @"entry";
+static NSString *const ID = @"cell";
+
+
+@interface HomeViewController ()<UITableViewDataSource,UITableViewDelegate,UICollectionViewDataSource,UICollectionViewDelegate,ZWBannerViewDelegate>
+
 /** 轮播图 */
 @property (nonatomic, strong) ZWBannerView *airBanner;
-
 /** 数据数组 */
 @property (nonatomic, strong) NSArray *banners;
 @property (nonatomic, strong) NSMutableArray *topics;
 @property (nonatomic, strong) NSArray *entrys;
-
 /** EntryView */
 @property (nonatomic, strong) UICollectionView *entryView;
 @end
 
 @implementation HomeViewController
-
-static NSString *const EntryID = @"entry";
-
-static NSString *ID = @"cell";
 
 - (NSMutableArray *)topics {
     if (!_topics) {
@@ -47,16 +43,12 @@ static NSString *ID = @"cell";
     }
     return _topics;
 }
-
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupNav];
-    [self setupTableView];
+    
     [self loadData];
     [self setupHeader];
-    
-    
 }
 
 /**
@@ -99,46 +91,6 @@ static NSString *ID = @"cell";
     }];
 }
 
-/**
- *  初始化TablView
- */
-- (void)setupTableView {
-    UITableView *tableView = [[UITableView alloc] init];
-    self.tableView = tableView;
-    self.tableView.delegate = self;
-    self.tableView.dataSource = self;
-    
-    UIView *bgView = [[UIView alloc] init];
-    bgView.backgroundColor = [UIColor whiteColor];
-    [self.view addSubview:bgView];
-    [bgView addSubview:tableView];
-    
-    UIView *pineView = [[UIView alloc] init];
-    [bgView addSubview:pineView];
-    pineView.backgroundColor = kRGB(232, 86, 93);
-    self.statusView = pineView;
-    
-    [bgView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(self.view).with.insets(UIEdgeInsetsMake(0, 0, 0, 0));
-    }];
-    
-    [pineView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(bgView.mas_top).with.offset(0);
-        make.leadingMargin.equalTo(bgView);
-        make.rightMargin.equalTo(bgView);
-        make.height.mas_equalTo(@20);
-    }];
-    
-    [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(pineView.mas_bottom).with.offset(-20);
-        make.left.equalTo(bgView.mas_left).with.offset(0);
-        make.right.equalTo(bgView.mas_right).with.offset(0);
-        make.bottom.equalTo(bgView.mas_bottom).with.offset(0);
-    }];
-    
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:ID];
-}
 
 /**
  *  头部视图
@@ -148,16 +100,15 @@ static NSString *ID = @"cell";
     UIView *bgView = [UIView new];
     bgView.frame = CGRectMake(0, 0, kWidth, kWidth * 0.5 + 120);
     self.airBanner = [ZWBannerView cycleScrollViewWithFrame:CGRectMake(0, 0, kWidth, kWidth * 0.5) imageURLStringsGroup:nil];
+    self.airBanner.delegate = self;
     [bgView addSubview:self.airBanner];
    
     // entryView
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
-
     self.entryView= [[UICollectionView alloc] initWithFrame:CGRectMake(0, kWidth * 0.5, kWidth, 120) collectionViewLayout:flowLayout];
     self.entryView.backgroundColor = [UIColor whiteColor];
     [self.entryView registerClass:[EntryViewCell class] forCellWithReuseIdentifier:EntryID];
     flowLayout.itemSize = CGSizeMake(100, 100);
-  
     self.entryView.dataSource = self;
     self.entryView.delegate = self;
     self.entryView.contentInset = UIEdgeInsetsMake(0, 10, 0, 10);
@@ -174,27 +125,21 @@ static NSString *ID = @"cell";
     UIImageView *titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"nar_logo"]];
     titleView.size = titleView.image.size;
     self.navigationItem.titleView = titleView;
-    
     // 左边按钮
     UIButton *leftButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [leftButton setImage:[UIImage imageNamed:@"subscribe_icon"] forState:UIControlStateNormal];
     //    leftButton.frame = CGRectMake(0, 0, 40, 40);
     [leftButton sizeToFit];
     leftButton.imageEdgeInsets = UIEdgeInsetsMake(0, -30, 0, 0);
-    
     UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithCustomView:leftButton];
     self.navigationItem.leftBarButtonItem = leftItem;
-    
     // 右边按钮
     UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [rightButton setImage:[UIImage imageNamed:@"sign_bar_icon"] forState:UIControlStateNormal];
     rightButton.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, -30);
     [rightButton sizeToFit];
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:rightButton];
-    
     self.navigationItem.rightBarButtonItem = rightItem;
-    
-    
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -233,32 +178,6 @@ static NSString *ID = @"cell";
     return 150;
 }
 
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    UIView *navBar = self.navigationController.navigationBar;
-    CGRect frame = navBar.frame;
-    CGFloat offestY = scrollView.contentOffset.y;
-    BOOL isDowning = self.yy < offestY;
-    BOOL isTop = offestY < -40;
-    self.yy = offestY;
-    BOOL isNavBarHidden = frame.origin.y < -43;
-    BOOL isBottom = scrollView.contentSize.height - offestY < scrollView.size.height;
-    if (isDowning && !isTop && !isNavBarHidden) {// 向下滑
-        frame.origin.y = -44;
-                [self.tableView mas_updateConstraints:^(MASConstraintMaker *make) {
-                    make.top.equalTo(self.statusView.mas_bottom).with.offset(0);
-                }];
-    }
-    if ((!isDowning || isTop) && isNavBarHidden && !isBottom) {// 向上滑和最顶时显示
-        frame.origin.y = 20;
-                [self.tableView mas_updateConstraints:^(MASConstraintMaker *make) {
-                    make.top.equalTo(self.statusView.mas_bottom).with.offset(-20);
-                }];
-    }
-    [UIView animateWithDuration:0.3 animations:^{
-        self.navigationController.navigationBar.frame = frame;
-    }];
-}
-
 - (void)setBanners:(NSArray *)banners {
     _banners = banners;
     NSMutableArray *allPicURLStrings = [NSMutableArray array];
@@ -278,5 +197,20 @@ static NSString *ID = @"cell";
     });
 }
 
+#pragma mark - bannerdelegate
+- (void)cycleScrollView:(ZWBannerView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index {
+    Banner *banner = self.banners[index];
+    if ([banner.type isEqualToString:@"topic_list"]) {
+        NSString *ids = [banner.extend extendNumber];
+        TopicListViewController *topicListVC = [TopicListViewController TopicList:ids andTitle:banner.title];
+        [self.navigationController pushViewController:topicListVC animated:YES];
+        return;
+    }
+    if ([banner.type isEqualToString:@"webview"]) {
+        TopicWebViewController *wv = [[TopicWebViewController alloc] init];
+        [self.navigationController pushViewController:wv animated:YES];
+        return;
+    }
+}
 
 @end

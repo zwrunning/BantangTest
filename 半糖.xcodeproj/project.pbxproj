@@ -30,6 +30,10 @@
 		452C2BAC1C0AFC7900E3DA4E /* Entry.m in Sources */ = {isa = PBXBuildFile; fileRef = 452C2BAB1C0AFC7900E3DA4E /* Entry.m */; };
 		453A89641C08C19A008AC59A /* Banner.m in Sources */ = {isa = PBXBuildFile; fileRef = 453A89631C08C19A008AC59A /* Banner.m */; };
 		45DA26A91C07133D00FAD551 /* NetWorkTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DA26A81C07133D00FAD551 /* NetWorkTool.m */; };
+		45DE06B41C0C0D9F0048EC5F /* TopicListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DE06B31C0C0D9F0048EC5F /* TopicListViewController.m */; };
+		45DE06B71C0C0DB20048EC5F /* TopicWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DE06B61C0C0DB20048EC5F /* TopicWebViewController.m */; };
+		45DE06BA1C0C0E510048EC5F /* NSString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DE06B91C0C0E510048EC5F /* NSString+Extension.m */; };
+		45DE06BD1C0C14030048EC5F /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DE06BC1C0C14030048EC5F /* BaseViewController.m */; };
 		45F026EE1C098C6E00BD9BE5 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F026ED1C098C6E00BD9BE5 /* HomeViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -97,6 +101,14 @@
 		453A89631C08C19A008AC59A /* Banner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Banner.m; sourceTree = "<group>"; };
 		45DA26A71C07133D00FAD551 /* NetWorkTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetWorkTool.h; sourceTree = "<group>"; };
 		45DA26A81C07133D00FAD551 /* NetWorkTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetWorkTool.m; sourceTree = "<group>"; };
+		45DE06B21C0C0D9F0048EC5F /* TopicListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopicListViewController.h; sourceTree = "<group>"; };
+		45DE06B31C0C0D9F0048EC5F /* TopicListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopicListViewController.m; sourceTree = "<group>"; };
+		45DE06B51C0C0DB20048EC5F /* TopicWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopicWebViewController.h; sourceTree = "<group>"; };
+		45DE06B61C0C0DB20048EC5F /* TopicWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopicWebViewController.m; sourceTree = "<group>"; };
+		45DE06B81C0C0E510048EC5F /* NSString+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Extension.h"; sourceTree = "<group>"; };
+		45DE06B91C0C0E510048EC5F /* NSString+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extension.m"; sourceTree = "<group>"; };
+		45DE06BB1C0C14030048EC5F /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
+		45DE06BC1C0C14030048EC5F /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		45F026EC1C098C6E00BD9BE5 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		45F026ED1C098C6E00BD9BE5 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		77161FBA4C015564C0633962 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -198,6 +210,7 @@
 		45270AB61BFE30E700FFB49B /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				45DE06B11C0C0D7A0048EC5F /* TopicList */,
 				45270ABE1BFE32D800FFB49B /* Discover */,
 				45270ABF1BFE32D800FFB49B /* Home */,
 				45270AC01BFE32D800FFB49B /* Main */,
@@ -262,6 +275,8 @@
 				45270AC21BFE32D800FFB49B /* MainTabBarController.m */,
 				45270ADC1BFE3EB200FFB49B /* MainNavgationController.h */,
 				45270ADD1BFE3EB200FFB49B /* MainNavgationController.m */,
+				45DE06BB1C0C14030048EC5F /* BaseViewController.h */,
+				45DE06BC1C0C14030048EC5F /* BaseViewController.m */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -298,6 +313,8 @@
 			children = (
 				45270AD81BFE3A8700FFB49B /* UIView+Extension.h */,
 				45270AD91BFE3A8700FFB49B /* UIView+Extension.m */,
+				45DE06B81C0C0E510048EC5F /* NSString+Extension.h */,
+				45DE06B91C0C0E510048EC5F /* NSString+Extension.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -366,6 +383,17 @@
 				453A89631C08C19A008AC59A /* Banner.m */,
 			);
 			name = BannerModel;
+			sourceTree = "<group>";
+		};
+		45DE06B11C0C0D7A0048EC5F /* TopicList */ = {
+			isa = PBXGroup;
+			children = (
+				45DE06B21C0C0D9F0048EC5F /* TopicListViewController.h */,
+				45DE06B31C0C0D9F0048EC5F /* TopicListViewController.m */,
+				45DE06B51C0C0DB20048EC5F /* TopicWebViewController.h */,
+				45DE06B61C0C0DB20048EC5F /* TopicWebViewController.m */,
+			);
+			name = TopicList;
 			sourceTree = "<group>";
 		};
 		A42164614D0EE10B6239E41D /* Frameworks */ = {
@@ -561,9 +589,13 @@
 				452C2B9D1C0ADDD200E3DA4E /* Topic.m in Sources */,
 				45DA26A91C07133D00FAD551 /* NetWorkTool.m in Sources */,
 				45270ACB1BFE32FD00FFB49B /* DiscoverViewController.m in Sources */,
+				45DE06B71C0C0DB20048EC5F /* TopicWebViewController.m in Sources */,
 				452C2BAC1C0AFC7900E3DA4E /* Entry.m in Sources */,
+				45DE06BD1C0C14030048EC5F /* BaseViewController.m in Sources */,
+				45DE06BA1C0C0E510048EC5F /* NSString+Extension.m in Sources */,
 				452C2B8C1C0ABE3000E3DA4E /* ZWBannerView.m in Sources */,
 				45270A881BFE24DA00FFB49B /* AppDelegate.m in Sources */,
+				45DE06B41C0C0D9F0048EC5F /* TopicListViewController.m in Sources */,
 				45270A851BFE24DA00FFB49B /* main.m in Sources */,
 				452C2B891C0ABE2200E3DA4E /* ZWBannerViewCell.m in Sources */,
 				45270AC51BFE32D800FFB49B /* MainTabBarController.m in Sources */,
